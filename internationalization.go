@@ -1,11 +1,8 @@
 package paysuper_i18n
 
-
 import (
-	"fmt"
 	"github.com/vube/i18n"
 	"go.uber.org/zap"
-	"os"
 )
 
 type Formatter interface {
@@ -16,12 +13,10 @@ type formatterImpl struct {
 	factory *i18n.TranslatorFactory
 }
 
-func NewFormatter() (Formatter, error) {
-	dir, _ := os.Getwd()
-
+func NewFormatter(rulesPath, messagesPath []string) (Formatter, error) {
 	f, errs := i18n.NewTranslatorFactory(
-		[]string{fmt.Sprintf("%s/data/rules", dir)},
-		[]string{"data/messages"},
+		rulesPath,
+		messagesPath,
 		"en",
 	)
 

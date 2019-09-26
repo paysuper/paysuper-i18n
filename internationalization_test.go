@@ -23,7 +23,7 @@ func Test_formatterImpl_FormatCurrency(t *testing.T) {
 		{"RUB in ru locale", args{locale: "ru", amount: 32.45, currency: "RUB"}, "32,45 руб.", false},
 	}
 
-	loc, err := NewFormatter()
+	loc, err := NewFormatter([]string{"internal/data/rules"}, []string{"internal/data/messages"})
 	if err != nil {
 		t.Errorf("Error during ctor. Error %s", err.Error())
 		return
