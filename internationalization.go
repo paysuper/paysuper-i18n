@@ -2,8 +2,10 @@ package paysuper_i18n
 
 
 import (
+	"fmt"
 	"github.com/vube/i18n"
 	"go.uber.org/zap"
+	"os"
 )
 
 type Formatter interface {
@@ -15,8 +17,10 @@ type formatterImpl struct {
 }
 
 func NewFormatter() (Formatter, error) {
+	dir, _ := os.Getwd()
+
 	f, errs := i18n.NewTranslatorFactory(
-		[]string{"data/rules"},
+		[]string{fmt.Sprintf("%s/data/rules", dir)},
 		[]string{"data/messages"},
 		"en",
 	)
