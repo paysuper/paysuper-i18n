@@ -3,7 +3,20 @@ package paysuper_i18n
 import (
 	"github.com/stretchr/testify/assert"
 	"testing"
+	"time"
 )
+
+func Test_formatterImpl_FormatDateTime(t *testing.T) {
+	loc, err := NewFormatter([]string{"internal/data/rules"}, []string{"internal/data/messages"})
+	if err != nil {
+		t.Errorf("Error during ctor. Error %s", err.Error())
+		return
+	}
+
+	date, err := loc.FormatDateTime("en", time.Date(2019, time.October, 26, 14, 29, 23, 11, time.UTC))
+	assert.Nil(t, err)
+	assert.EqualValues(t, "Oct 26, 2019", date)
+}
 
 func Test_formatterImpl_FormatCurrency(t *testing.T) {
 	type args struct {
