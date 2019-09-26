@@ -20,3 +20,5 @@ require (
 	gopkg.in/check.v1 v1.0.0-20190902080502-41f04d3bba15 // indirect
 	gopkg.in/yaml.v1 v1.0.0-20140924161607-9f9df34309c0 // indirect
 )
+
+replace github.com/golang/lint => golang.org/x/lint v0.0.0-20190909230951-414d861bb4ac
