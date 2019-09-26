@@ -1,0 +1,3 @@
+# This files is only here for unit tests
+WELCOME                 : "Привет!"
+WELCOME_USER            : "Привет, {user}!"
