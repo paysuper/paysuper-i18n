@@ -1,4 +1,4 @@
-module paysuper-i18n
+module github.com/paysuper/paysuper-i18n
 
 require (
 	github.com/creack/pty v1.1.9 // indirect
